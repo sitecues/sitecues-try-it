@@ -1,0 +1,72 @@
+{
+  "name": "sitecues-try-it",
+  "version": "0.0.5",
+  "description": "A demo service for sitecues.",
+  "homepage": "https://bitbucket.org/ai_squared/sitecues-proxy",
+  "main": "index.js",
+  "author": {
+    "name": "Seth Holladay",
+    "url": "http://seth-holladay.com",
+    "email": "me@seth-holladay.com"
+  },
+  "bin": {
+    "sitecues-try-it": "bin/sitecues-try-it.js"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:ai_squared/sitecues-proxy.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "files": [
+    "index.js",
+    "lib",
+    "bin"
+  ],
+  "directories": {
+    "lib": "./lib",
+    "bin": "./bin"
+  },
+  "dependencies": {
+    "boom": "^4.0.0",
+    "chalk": "^1.1.3",
+    "cheerio": "^0.22.0",
+    "h2o2": "^5.1.0",
+    "hapi": "^15.0.3",
+    "hapi-hi": "^0.1.0",
+    "json-align": "^0.1.0",
+    "meow": "^3.7.0",
+    "opn": "^4.0.2",
+    "prepend-http": "^1.0.4",
+    "read-pkg-up": "^1.0.1",
+    "root-check": "^1.0.0",
+    "throw-rejects": "^0.1.0",
+    "trumpet": "^1.7.2",
+    "url-type": "^0.1.1",
+    "wreck": "^9.0.0"
+  },
+  "devDependencies": {
+    "eslint-config-tidy": "^0.3.2",
+    "gulp": "gulpjs/gulp#4.0",
+    "intern": "^3.2.3",
+    "pm2": "^1.1.3",
+    "xo": "^0.16.0"
+  },
+  "xo": {
+    "extend": "tidy"
+  },
+  "keywords": [
+    "sitecues",
+    "reverse",
+    "proxy",
+    "binary",
+    "cli",
+    "service"
+  ]
+}

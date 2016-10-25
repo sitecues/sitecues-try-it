@@ -1,0 +1,57 @@
+/**
+ *  This file defines the configuration for managing the sitecues proxy as a
+ *  service with PM2.
+ */
+{
+    /**
+     *  Application settings.
+     *  http://pm2.keymetrics.io/docs/usage/application-declaration/
+     */
+    "apps" : [
+        // The Try It demo service. Useful for sharing sitecues-enabled links.
+        {
+            "name"   : "sitecues-try-it",
+            "script" : "bin/sitecues-try-it.js",
+            "exec_mode" : "cluster",
+            "instances" : 2,
+            "max_memory_restart" : "120M",
+            "env" : {
+                "SITE_ID"   : "s-98595d91"
+            },
+            "env_dev" : {
+                "HOSTNAME" : "proxy.dev.sitecues.com",
+                "PORT"     : "8001"
+            }
+        },
+        {
+            "name"   : "sitecues-try-it-links",
+            "script" : "bin/sitecues-try-it.js",
+            "exec_mode" : "cluster",
+            "instances" : 2,
+            "max_memory_restart" : "120M",
+            "env" : {
+                "SITE_ID"   : "s-98595d91",
+                "PROXY_LINKS" : true
+            },
+            "env_dev" : {
+                "HOSTNAME" : "proxy.dev.sitecues.com",
+                "PORT"     : "7000"
+            }
+        }
+    ],
+
+    /**
+     *  Deployment settings.
+     *  http://pm2.keymetrics.io/docs/usage/deployment/
+     */
+    "deploy" : {
+        "dev" : {
+            "user" : "proxy",
+            "host" : "proxy.dev.sitecues.com",
+            "repo" : "git@bitbucket.org:ai_squared/sitecues-proxy.git",
+            "ref"  : "origin/master",
+            "path" : "/srv/sitecues-try-it",
+            "post-deploy" : "npm install && pm2 startOrReload ecosystem.json --env dev"
+        }
+    }
+}

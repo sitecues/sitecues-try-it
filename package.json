@@ -1,0 +1,55 @@
+{
+  "name": "sitecues-try-it",
+  "version": "0.0.0",
+  "description": "Simulate Sitecues on your website.",
+  "homepage": "https://github.com/sitecues/sitecues-try-it",
+  "main": "index.js",
+  "author": {
+    "name": "Seth Holladay",
+    "url": "http://seth-holladay.com",
+    "email": "me@seth-holladay.com"
+  },
+  "bin": {
+    "try-it": "try-it.js"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sitecues/sitecues-try-it.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sitecues/sitecues-try-it/issues",
+    "email": "me@seth-holladay.com"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "private": true,
+  "license": "SEE LICENSE IN LICENSE",
+  "files": [
+    "index.js",
+    "lib",
+    "bin"
+  ],
+  "directories": {
+    "lib": "./lib",
+    "bin": "./bin"
+  },
+  "devDependencies": {
+    "eslint-config-tidy": "^0.4.0",
+    "xo": "^0.17.0"
+  },
+  "keywords": [
+    "sitecues",
+    "reverse",
+    "proxy",
+    "binary",
+    "cli",
+    "service"
+  ],
+  "xo": {
+    "extend": "tidy"
+  }
+}
