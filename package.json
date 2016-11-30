@@ -51,5 +51,23 @@
   ],
   "xo": {
     "extend": "tidy"
+  },
+  "dependencies": {
+    "boom": "^4.2.0",
+    "chalk": "^1.1.3",
+    "cheerio": "^0.22.0",
+    "h2o2": "^5.4.0",
+    "handle-quit": "^0.1.0",
+    "hapi": "^16.0.0",
+    "hapi-hi": "^0.1.0",
+    "meow": "^3.7.0",
+    "opn": "^4.0.2",
+    "port-type": "^0.2.1",
+    "prepend-http": "^1.0.4",
+    "root-check": "^1.0.0",
+    "throw-rejects": "^0.1.3",
+    "trumpet": "^1.7.2",
+    "url-type": "^0.1.2",
+    "wreck": "^10.0.0"
   }
 }

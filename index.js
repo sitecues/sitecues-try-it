@@ -7,13 +7,12 @@ const hi = require('hapi-hi');
 const h2o2 = require('h2o2');
 /* eslint-disable global-require */
 const routes = [
-    require('./route/target'),
-    require('./route/stream-target')
+    require('./lib/route/target'),
+    require('./lib/route/stream-target')
 ];
 /* eslint-enable global-require */
 
-class ReverseProxy extends Server {
-
+class TryIt extends Server {
     constructor(option) {
         const config = Object.assign(
             {
@@ -68,5 +67,5 @@ class ReverseProxy extends Server {
 }
 
 module.exports = {
-    ReverseProxy
+    TryIt
 };
