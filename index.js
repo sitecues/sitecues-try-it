@@ -73,6 +73,4 @@ class TryIt extends Server {
     }
 }
 
-module.exports = {
-    TryIt
-};
+module.exports = TryIt;

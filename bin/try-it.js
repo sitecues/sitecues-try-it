@@ -20,8 +20,8 @@ const cli = require('meow')(`
       $ sitecues-try-it
 
     Options
-      --port    Listen on a specific port for requests
-      --target  Copy a demo link and open it in a browser
+      --port  Listen on a specific port for requests
+      --open  Copy a demo link and open it in a browser
 
     Examples
       $ sitecues-try-it --port=7000
@@ -30,11 +30,11 @@ const cli = require('meow')(`
       ${chalk.bold.cyan('Try Sitecues')} ${chalk.bold.grey('at')} ${chalk.bold.yellow('http://localhost:3000/http://tired.com')}
 `);
 
-const { TryIt } = require('../');
+const TryIt = require('../');
 const { SecurityError } = require('../lib/error');
 
 const serverOptions = Object.assign({}, cli.flags);
-delete serverOptions.target;
+delete serverOptions.open;
 
 const server = new TryIt(serverOptions);
 
@@ -50,8 +50,10 @@ server.start().then(() => {
         (new SecurityError('Unable to let go of root privileges.')).stack
     );
 
-    const { target } = cli.flags;
-    const visitUrl = server.info.uri + '/' + (target ? assumeHttp(target) : '');
+    const target = cli.flags.open;
+    const visitUrl = server.connections[0].info.uri + '/' + (target ?
+        assumeHttp(target === true ? 'tired.com' : target) :
+        '');
 
     console.log(
         chalk.bold.cyan('Try Sitecues'),

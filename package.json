@@ -13,6 +13,7 @@
     "try-it": "try-it.js"
   },
   "scripts": {
+    "start": "node ./bin/try-it.js",
     "test": "xo"
   },
   "repository": {
@@ -37,21 +38,6 @@
     "lib": "./lib",
     "bin": "./bin"
   },
-  "devDependencies": {
-    "eslint-config-tidy": "^0.4.0",
-    "xo": "^0.17.0"
-  },
-  "keywords": [
-    "sitecues",
-    "reverse",
-    "proxy",
-    "binary",
-    "cli",
-    "service"
-  ],
-  "xo": {
-    "extend": "tidy"
-  },
   "dependencies": {
     "boom": "^4.2.0",
     "chalk": "^1.1.3",
@@ -69,5 +55,20 @@
     "trumpet": "^1.7.2",
     "url-type": "^0.1.2",
     "wreck": "^10.0.0"
+  },
+  "devDependencies": {
+    "eslint-config-tidy": "^0.4.0",
+    "xo": "^0.17.0"
+  },
+  "keywords": [
+    "sitecues",
+    "reverse",
+    "proxy",
+    "binary",
+    "cli",
+    "service"
+  ],
+  "xo": {
+    "extend": "tidy"
   }
 }
