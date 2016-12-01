@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const portType = require('port-type');
 const { Server } = require('hapi');
 const hi = require('hapi-hi');
 const h2o2 = require('h2o2');
@@ -14,14 +15,16 @@ const routes = [
 
 class TryIt extends Server {
     constructor(option) {
+        const privileged = portType.haveRights(80);
         const config = Object.assign(
             {
-                port : 8001,
-                tls  : {
+                insecurePort : privileged ? 80 : 3001,
+                port         : privileged ? 443 : 3000,
+                tls          : {
                     // Async configuration for constructors is a pain.
                     /* eslint-disable no-sync */
-                    key  : fs.readFileSync(path.join(__dirname, 'ssl/key/localhost.key')),
-                    cert : fs.readFileSync(path.join(__dirname, 'ssl/cert/localhost.cert'))
+                    key  : fs.readFileSync(path.join(__dirname, 'lib/key/localhost.key')),
+                    cert : fs.readFileSync(path.join(__dirname, 'lib/cert/localhost-chain.cert'))
                     /* eslint-enable no-sync */
                 }
             },
@@ -29,9 +32,13 @@ class TryIt extends Server {
         );
 
         super();
+
         super.connection({
             port : config.port,
             tls  : config.tls
+        });
+        super.connection({
+            port : config.insecurePort
         });
     }
 
